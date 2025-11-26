@@ -1,0 +1,10 @@
+.course-container {
+  padding: 20px;
+}
+
+.course-card {
+  background: #f2f2f2;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 10px;
+}
