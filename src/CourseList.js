@@ -1,9 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./CourseList.css";
 
 const CourseList = () => {
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("isAuthenticated");
+    navigate("/login");
+  };
 
   const courses = [
     {
@@ -56,7 +62,10 @@ const CourseList = () => {
 
   return (
     <div className="course-container">
-      <h1 className="heading">📚 Available Courses</h1>
+      <div className="header-bar">
+        <h1 className="heading">📚 Available Courses</h1>
+        <button className="logout-btn" onClick={handleLogout}>Logout</button>
+      </div>
 
       <input
         type="text"
